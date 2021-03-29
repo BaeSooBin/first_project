@@ -290,7 +290,7 @@
     #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(4) .content .homepage-gap {border-bottom:1px solid #e4e4e4;}
     #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(5) .content .homepage-gap {border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;}
     #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(6) .content .homepage-gap {border-right:0;border-bottom:1px solid #e4e4e4;}
-    #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(7) .content .homepage-gap {border-right:1px solid #e4e4e4;border-bottom: ;}
+    #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(7) .content .homepage-gap {border-right:1px solid #e4e4e4;border-bottom:0;}
     #wrap #main #section6 .wrap .gap .container .homepage-wrap li:nth-child(8) .content .homepage-gap {border:0;padding:0 15px;}
     #wrap #main #section6 .wrap .gap .container .homepage-wrap li .content .homepage-gap a {width:100%;text-align:center;}
 }
