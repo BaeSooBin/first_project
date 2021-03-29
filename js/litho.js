@@ -3,129 +3,211 @@
     var litho = {
 
         init:function(){
+            this.scrollFn();
             this.headerFn();
             this.section1Fn();
             this.section4Fn();
             this.section5Fn();
         },
+        scrollFn:function(){
+
+            var scrollOld = 0;
+            var scrollNew = 0;
+            var $win = $(window);
+            var result = null;
+            var $header = $('#header');
+            var that = this;
+
+                function scrollFn(){
+                    scrollNew = $win.scrollTop()
+                    var scr = function(){
+                        result = scrollOld - scrollNew > 0 ? 'UP' : 'DOWN';
+                    }
+                    scr();
+
+                    if( $win.scrollTop() == 0 ){
+                        $header.removeClass('addshow');
+                        $header.removeClass('addMobile');
+                        $header.removeClass('addHide');
+                    }
+                    else{
+                        if(result == 'UP' ){
+                            if( that.btn==1 ){
+                                $header.removeClass('addHide');
+                                $header.addClass('addshow');
+                                $header.addClass('addMobile');
+                            }
+                            else{
+                                $header.addClass('addshow');
+                                $header.removeClass('addHide');
+                                $header.removeClass('addMobile');
+                            }
+
+                        }
+                        if(result == 'DOWN'){
+                            if( that.btn==1 ){
+                                $header.removeClass('addshow');
+                                $header.removeClass('addHide');
+                                $header.addClass('addMobile');
+                            }
+                            else{
+                                $header.removeClass('addshow');
+                                $header.removeClass('addMobile');
+                                $header.addClass('addHide');
+                            }
+                        }
+                    }
+                    scrollOld = scrollNew;
+                }
+                $win.scroll(function(){
+                    scrollFn();
+                });
+
+        },
 
         headerFn:function(){
 
-            var lithoNav = {
-                sub1:[
-                    {sub:["Corporate","Startup","Business","Corporate","Finance","Application","Consulting","Digital agency","SEO agency","Events & conference","Marketing agency"]},
-                    {sub:["Specialized","Restaurant","Architecture","Hotel & resort","Travel agency","Yoga & meditation","Gym & fitness","Spa salon","Cafe","Home decor","Interior design"]},
-                    {sub:["Portfolio","Design agency","Web agency","Creative agency","Freelancer","Branding agency","Photography","Personal portfolio","Vertical portfolio","Interactive portfolio","Split portfolio","Creative portfolio"]},
-                    {sub:["Other","Furniture shop","Fashion shop","Magazine","Lifestyle blog","Classic blog","Blog metro"]}
-                ],
-                sub2:[
-                    {sub:"About", subsub:["About me","About us","Our story","Who we are"]},
-                    {sub:"Services", subsub:["Our services","What we offer","Our process"]},
-                    {sub:"Contact", subsub:["Contact simple","Contact classic","Contact modern"]},
-                    {sub:"Additional pages", subsub:["Our team","Latest news","Pricing packages","Error 404","Maintenance","Coming soon","Coming soon - V2","FAQ's","Search result"]}
-                ],
-                sub3:[
-                    {sub:"Portfolio classic", subsub:["Classic 2 column","Classic 3 column","Classic 4 column","Classic masonry","Classic metro"]},
-                    {sub:"Portfolio boxed", subsub:["Boxed 2 column","Boxed 3 column","Boxed 4 column","Boxed masonry","Boxed metro"]},
-                    {sub:"Portfolio colorful", subsub:["Colorful 2 column","Colorful 3 column","Colorful 4 column","Colorful masonry","Colorful metro"]},
-                    {sub:"Portfolio bordered", subsub:["Bordered 2 column","Bordered 3 column","Bordered 4 column","Bordered masonry","Bordered metro"]},
-                    {sub:"Portfolio overlay", subsub:["Overlay 2 column","Overlay 3 column","Overlay 4 column","Overlay masonry","Overlay metro"]},
-                    {sub:"Portfolio switch image", subsub:["Switch 2 column","Switch 3 column","Switch 4 column","Switch masonry","Switch metro"]},
-                    {sub:"Portfolio other", subsub:["Portfolio scattered","Justified gallery","Portfolio slider"]},
-                    {sub:"Single project page", subsub:["Single project page 01","Single project page 02","Single project page 03","Single project page 04","Single project page 05"]},
-                ],
-                sub4:[
-                    {sub:["General","Accordions","Buttons","Team","Team carousel","Clients","Client carousel","Subscribe","Call to action","Tab","Google map","Contact form","Image gallery"]},
-                    {sub:["Content & infographics","Progress bar","Icon with text","Over line icon box","Custom icon with text","Counters","Countdown","Pie charts","Fancy text box","Text box","Fancy text"]},
-                    {sub:["Interactive","Testimonials","Testimonials carousel","Video","Interactive banners","Services","Info banner","Rotate box","Process step","Instagram","Parallax scrolling","Text slider"]},
-                    {sub:["Text & containers","Heading","Drop caps","Columns","Blockquote","Highlights","Message box","Social icons","Lists","Separators","Pricing table"]}
-                ],
-                sub5:[
-                    {
-                        sub:"Header and menu",
-                        subsub:["Transparent header","White header","Dark header","Header with top bar","Header with push","Center navigation","Center logo","Top logo","One page navigation","Hamburger menu","Left menu","Header type","Mobile menu"],
-                        subsubsub:{
-                            subsubsub1:["Hamburger menu","Hamburger menu modern","Hamburger menu half"],
-                            subsubsub2:["Left menu classic","Left menu modern"],
-                            subsubsub3:["Always fixed","Disable fixed","Reverse scroll","Responsive sticky"],
-                            subsubsub4:["Classic","Modern","Full screen"]
-                        }
-                    },
-                    {
-                        sub:"Footer",
-                        subsub:["Footer style 01","Footer style 02","Footer style 03","Footer style 04","Footer style 05","Footer style 06","Footer style 07","Footer style 08","Footer style 09","Footer style 10","Footer style 11","Footer style 12"]
-                    },
-                    {
-                        sub:"Page title",
-                        subsub:["Left alignment","Right alignment","Center alignment","Colorful style","Big typography","Parallax background","Separate breadcrumbs","Gallery background","Background video","Mini version"]
-                    },
-                    {
-                        sub:"Modal popup",
-                        subsub:["Simple modal","Subscription","Contact form","Youtube video","Vimeo video","Google map"]
-                    },
-                    {
-                        sub:"Icon packs",
-                        subsub:["Icons mind line","Icons mind solid","Feather","Font awesome","ET line","Themify","Simple line"]
-                    },
-                    {sub:"Animations"}
-                ],
-                sub6:[
-                    {sub:"Blog grid"},
-                    {sub:"Blog masonry"},
-                    {sub:"Blog classic"},
-                    {sub:"Blog simple"},
-                    {sub:"Blog side image"},
-                    {sub:"Blog metro"},
-                    {sub:"Blog overlay image"},
-                    {sub:"Blog modern"},
-                    {sub:"Blog clean"},
-                    {sub:"Blog clean"},
-                    {sub:"Blog standard"},
-                    {sub:"Post layout", subsub:["Blog post layout 01","Blog post layout 02","Blog post layout 03","Blog post layout 04","Blog post layout 05"]},
-                    {sub:"Post layout", subsub:["Standard post","Gallery post","Slider post","HTML5 video post","Youtube video post","Vimeo video post","Audio post","Blockquote post","Full width post"]}
-                ],
-                sub7:[
-                    {sub:["Shop layout","Shop wide","Left sidebar","Right sidebar","Only categories","Single product","Utility pages","Shopping cart","Checkout","Login / Register"]},
-                    {sub:["menu-banner-01.jpg"]},
-                    {sub:["menu-banner-02.jpg"]}
-                ]
+            var $window = $(window);
+            var $mainBtn = $('#header .main-btn');
+            var $subBtn = $('#header .sub-btn');
+            var $subSubBtn = $('#header .sub-sub-btn');
+            var $sub = $('#header .sub');
+            var $subSub = $('#header .sub-sub');
+            var $subSubSub = $('#header .sub-sub-sub');
+            var $navUlLi = $('#header  #nav > ul > li');
+            var $mobileBtn = $('.mobile-btn');
+            var $bar = $('.bar');
+            var $nav = $('#nav');
+            var pc = 0;
+            var mobile = 0;
+            var $logoImg = $('#header #logo a img')
+            var that = this;
+
+
+            function pcEventFn(){
+
+                $nav.stop().show();
+                $sub.stop().hide();
+                $subSub.stop().hide();
+                $subSubSub.stop().hide();
+                $nav.css({display:'inline-block'});
+
+                $logoImg.attr('src','./img/logo-white.png');
+
+                // 메인메뉴 이벤트
+                $mainBtn.on({
+                    mouseenter:function(e){
+                        e.preventDefault();
+                        $(this).next().stop().show();
+                    }
+                });
+                $navUlLi.on({
+                    mouseleave:function(e){
+                        e.preventDefault();
+                        $sub.stop().hide();
+                    }
+                });
+
+                // 서브메뉴 이벤트
+                $subBtn.on({
+                    mouseenter:function(e){
+                        e.preventDefault();
+                        $subSub.stop().hide();
+                        $(this).next().stop().show();
+                    }
+                });
+                $navUlLi.on({
+                    mouseleave:function(e){
+                        e.preventDefault();
+                        $subSub.stop().hide();
+                    }
+                });
+
+                // 서브서브메뉴 이벤트
+                $subSubBtn.on({
+                    mouseenter:function(e){
+                        e.preventDefault();
+                        $subSubSub.stop().hide();
+                        $(this).next().stop().show();
+                    }
+                });
+                $navUlLi.on({
+                    mouseleave:function(e){
+                        e.preventDefault();
+                        $subSubSub.stop().hide();
+                    }
+                });
             }
 
-            // 서브메뉴1
-            var $subMenu1 = $('#nav .sub1 .sub-menu');
-            var txt = '';
+            function mobileEventFn(){
+                
+                $sub.stop().hide();
+                $subSub.stop().show();
+                $subSubSub.stop().show();  
+  
+                $bar.removeClass('addMobile');
+                $nav.stop().slideUp(0);
+  
+                $logoImg.attr('src','./img/logo-black.png');
+  
+  
+                //이벤트 삭제
+                $mainBtn.off('mouseenter')
+                $navUlLi.off('mouseleave')
+                $subBtn.off('mouseenter')
+                $navUlLi.off('mouseleave')
+                $subSubBtn.off('mouseenter')
+                $subSub.off('mouseleave')
+  
+  
+  
+              }
 
-                for(var i in lithoNav.sub1){
-                    for(var j in lithoNav.sub1[i].sub){
-                        if(j==0){
-                            txt = "<dt>" + lithoNav.sub1[i].sub[0] + "</dt>";
-                        }
-                        else{
-                            txt = "<dd><a href='#'>" + lithoNav.sub1[i].sub[j] + "</a></dd>";
-                        }
+
+            function pcMobileFn(){
+                if($window.innerWidth()>980){
+                    pc=1;
+                    mobile=0;
+                    pcEventFn();
+                    that.btn=0;
+                }
+                else{
+                    pc=0;
+                    mobile=1;
+                    mobileEventFn();
+                }
+            }
+            setTimeout(pcMobileFn,100);
+            
+            $window.resize(function(){
+                pcMobileFn();
+            });
+            mobileEventFn();
+
+            $mainBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    if(mobile==1){
+                        $sub.stop().slideUp(300);
+                        $(this).next().stop().slideToggle(300);
                     }
-                    $subMenu1.eq(i).html(txt);
-                    txt = '';
+                }
+            });
+            $mobileBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    $bar.toggleClass('addMobile');
+                    $nav.stop().slideToggle(300);
+
+                    that.btn == 0 ? that.btn = 1 : that.btn = 0;
                     
                 }
+            });
 
-            //서브메뉴4
-            var $subMenu4 = $('.sub4 .sub-menu');
-            var txt = '';
 
-                for(var i in lithoNav.sub4){
-                    for(var j in lithoNav.sub4[i].sub){
-                        if(j==0){
-                            txt = "<dt>" + lithoNav.sub4[i].sub[0] + "</dt>";
-                        }
-                        else{
-                            txt = "<dd><a href='#'>" + lithoNav.sub4[i].sub[j] + "</a></dd>";
-                        }
-                    }
-                    $subMenu4.eq(i).html(txt);
-                    txt = '';
-                    
-                }
+
+
+
 
         },
 
@@ -137,7 +219,7 @@
             var $slideView = $('#section1 .slide-view')
             var $slideWrap = $('#section1 .slide-wrap')
             var $section1 = $('#section1')
-            var $pageBtn = $('#section1 .page-btn')
+            var $pageBtn = $('#section1 .page-btn-wrap .page-btn')
             var cnt = 0;
             var n = $('#section1 .slide').length-2;
             var setId = null;
@@ -156,7 +238,7 @@
                         $winH = $(window).height();
                     }
                     else{
-                        $winH = 600;
+                        $winH = 500;
                     }
                 }
                 $section1.css({width:$winW,height:$winH});
@@ -232,14 +314,16 @@
 
             // 페이지버튼
             function pageBtnColorEventFn(){
-                $pageBtn.removeClass('addpage');
-                $pageBtn.eq(cnt>n-1 ? 0 : cnt).addClass('addpage');
+                $pageBtn.removeClass('addPage');
+                $pageBtn.eq( cnt > n-1 ? 0 : cnt).addClass('addPage');
+                // console.log(cnt);
             }
             pageBtnColorEventFn();
 
             $pageBtn.each(function(idx){
                 $(this).on({
                     click:function(){
+                        pauseTimerFn();
                         cnt=idx;
                         mainSlideFn();
                     }
@@ -306,23 +390,86 @@
                 setId[2] = setInterval(count2Fn,11.4285714);
                 setId[3] = setInterval(count3Fn,33.3333333);
 
+                var t=0;
+                var st1=0;
+                var st2=0;
+                var $ul = $('#section4 .count-box > ul');
+    
+                $(window).scroll(function(){
+                    if( $(window).scrollTop() >= $('#section4').offset().top ){
+                        if(t==0){
+                            t=1;
+                            $('#section4 .wrap .gap .container .count-box > ul').addClass('addCount');
+                            st1 = setTimeout(formatFn,100);
+                            st2 = setTimeout(count1Fn,1000);
+                        }
+                    }
+                    if( $(window).scrollTop() == 0){
+                        t=0;
+                        cnt = [0,0,0,0];
+                        $('#section4 .wrap .gap .container .count-box > ul').removeClass('addCount');
+                    }
+                });
+
+                function formatFn(){
+                    $ul.css({top:0});
+                }
+                st1 = setTimeout(formatFn,100);
+                    clearTimeout(st1);
+                st2 = setTimeout(formatFn,1000);
+                    clearTimeout(st2);
+
+
 
         },
-
         section5Fn(){
-            var $slide = $('#section5 .slide')
+            var $window = $(window);
+            var $section5 = $('#section5');
+            var $slide = $('#section5 .slide');
             var $slideWrap = $('#section5 .slide-wrap')
             var $slideView = $('#section5 .slide-view')
-            var $slideW = 981.5;
+            var $slideW = $('#section5 .slide-wrap .slide').width();
+            var $slideH = $('#section5 .slide-wrap .slide').height();
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var cnt = 0;
             var n = $('#section5 .slide').length-9;
             var setId = null;
             var setId2 = null;
 
+            // function resize5Fn(){
+            //     $slideW = $('.slide').width;
+            //     $winW = $(window).width();
+            //     $slide.css({width:$slideW,height:$slideH});
+
+
+            //     if( window.orientation == 0 || window.orientation == 180 ){
+            //         $slideH = $('.slide').height();
+            //     }
+            //     else if( window.orientation == 90 || window.orientation == -90 ){
+            //         if(980>$slideW){
+            //             $slideH = $('.slide').height();
+            //         }
+            //         else{
+            //             $slideH = 570;
+            //         }
+
+            //     }
+            //     $section5.css({width:$winW,height:$winH});
+            //     mainSlideFn();
+            // }
+            // resize5Fn();
+            // setTimeout(resize5Fn,100);
+
+            // $window.resize(function(){
+            //     resize5Fn();
+            // });
+
             function mainSlideFn(){
                 $slideWrap.stop().animate({left:-$slideW*cnt},600, function(){
-                    if(cnt>n){cnt=0}
-                    if(cnt<0){cnt=n}
+                    if(cnt>3){cnt=0}
+                    if(cnt<0){cnt=3}
+                    $slideWrap.stop().animate({left:-$slideW*cnt},0)
                 });
                 
             }
