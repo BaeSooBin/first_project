@@ -448,7 +448,7 @@
 #main #section10 .wrap .gap .container .right-box .box-gap .get h4 {font-size:16px;color:#232323;font-weight:500;line-height:28px;}
 #main #section10 .wrap .gap .container .right-box .box-gap .email {width:100%;}
 #main #section10 .wrap .gap .container .right-box .box-gap .email a {display:block;font-size:39.9px;color:#f4d956;font-weight:700;text-decoration:underline;transition:all .4s;}
-#main #section10 .wrap .gap .container .right-box .box-gap .email a:hover {color:#828282;border-bottom:4px solid #828282;}
+#main #section10 .wrap .gap .container .right-box .box-gap .email a:hover {color:#828282;}
 @keyframes ani13 {
     0%   {opacity:0;}
     100% {opacity:1;}
