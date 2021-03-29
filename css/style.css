@@ -169,9 +169,9 @@
 #main #section2 {width:100%;height:100%;}
 #main #section2 .wrap {width:100%;height:100%;}
 #main #section2 .wrap .gap {padding:100px 0;}
-#main #section2 .wrap .gap .container {width:100%;height:100%;text-align:center;}
-#main #section2 .wrap .gap .container .col-gap {width:100%;}
-#main #section2 .wrap .gap .container .col-gap .content {display:block;}
+#main #section2 .wrap .gap .container {width:100%;height:100%;}
+#main #section2 .wrap .gap .container .col-gap {margin:0 auto;}
+#main #section2 .wrap .gap .container .col-gap .content {width:100%;position:relative;left:22%;}
 #main #section2 .wrap .gap .container .col-gap .content .why {position:relative;float:left;display:inline-block;margin-right:50px;line-height:55px;}
 #main #section2 .wrap .gap .container .col-gap .content .why h2 {font-size:32.2px;font-weight:600;color:#232323;animation:ani1 1s;opacity:1;}
 @keyframes ani1 {
@@ -205,7 +205,7 @@
 #main #section3 .wrap .gap .container > ul > .left-box .content-gap {padding:0 15px;}
 #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content {position:relative;width:100%;animation:ani6 1.5s;}
 #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content .img {z-index:2;position:relative;max-width:444px;top:0;left:0;}
-#main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div {z-index:1;position:absolute;float:right;max-width:468px;width:468px;height:642.69px;top:30px;right:0;background:#f4d956;overflow:hidden;animation:ani6 1.6s;}
+#main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div {z-index:1;position:absolute;float:right;max-width:468px;width:468px;height:643px;top:30px;right:0;background:#f4d956;overflow:hidden;animation:ani6 1.6s;}
 #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div p {position:absolute;width:100%;font-size:80px;color:#969896;;font-weight:600;transform:rotate(-90deg);top:40%;left:44%;}
 
 #main #section3 .wrap .gap .container > ul > .right-box {float:left;position:relative;width:50%;height:100%;top:40px;}

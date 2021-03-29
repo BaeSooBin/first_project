@@ -43,6 +43,7 @@
                                 $header.removeClass('addMobile');
                             }
 
+
                         }
                         if(result == 'DOWN'){
                             if( that.btn==1 ){
@@ -55,6 +56,7 @@
                                 $header.removeClass('addMobile');
                                 $header.addClass('addHide');
                             }
+                            
                         }
                     }
                     scrollOld = scrollNew;

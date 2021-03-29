@@ -13,6 +13,8 @@
     #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .text-box .text-gap .text-wrap div button:nth-child(2) {margin:0 11px;}
     #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .text-box .text-gap .text-wrap div button:nth-child(2) i {color:#fff;transition:all .6s;width:11.5px;margin-left:8px;}
     
+    #main #section2 .wrap .gap .container .col-gap .content {left:10%;}
+
     #main #section4 .wrap .gap .container {position:relative;max-width:950px;}
 
     /* 섹션8 */
@@ -275,7 +277,7 @@
 
 
 
-    #main #section2 .wrap .gap .container .col-gap .content {position:relative;margin:0 30.76471vw;}
+    #main #section2 .wrap .gap .container .col-gap .content {position:relative;margin:0 30.76471vw;left:0;}
     #main #section2 .wrap .gap .container .col-gap .content .why {margin-bottom:30px;}
     #main #section2 .wrap .gap .container .col-gap .content .col {display:block;width:100%;}
 
@@ -334,8 +336,8 @@
     #main #section3 .wrap .gap .container > ul > .left-box .content-gap {padding:0;}
     #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content {position:relative;width:100%;}
     #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content .img {z-index:2;position:relative;width:70vw;top:0;right:0;}
-    #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div {display:none;}
-    #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div p {position:absolute;width:100%;font-size:80px;}
+    #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div {display:block;width:70vw;height:100vw;top:5.96296vw;right:20px;}
+    #main #section3 .wrap .gap .container > ul > .left-box .content-gap .content div p {position:absolute;width:100%;font-size:60px;}
 
     #main #section3 .wrap .gap .container > ul > .right-box {float:none;width:100%;height:100%;top:0;}
     #main #section3 .wrap .gap .container > ul > .right-box .content-gap {margin:0;}
